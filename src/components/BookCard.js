@@ -4,7 +4,7 @@ import BookShelfChanger from "./BookShelfChanger";
 import BookCardFooter from "./BookCardFooter";
 
 const BookCard = (props) => {
-  const { id, title, authors, shelf, onShelfChange } = props;
+  const { id, title, authors, shelf, onShelfChange, thumbnail } = props;
 
   const handleShelfChange = (shelf) => {
     onShelfChange({ id, shelf });
@@ -18,8 +18,7 @@ const BookCard = (props) => {
           style={{
             width: 128,
             height: 193,
-            backgroundImage:
-              'url("http://books.google.com/books/content?id=PGR2AwAAQBAJ&printsec=frontcover&img=1&zoom=1&imgtk=AFLRE73-GnPVEyb7MOCxDzOYF1PTQRuf6nCss9LMNOSWBpxBrz8Pm2_mFtWMMg_Y1dx92HT7cUoQBeSWjs3oEztBVhUeDFQX6-tWlWz1-feexS0mlJPjotcwFqAg6hBYDXuK_bkyHD-y&source=gbs_api")',
+            backgroundImage: `'url("${thumbnail}")'`,
           }}
         />
         <BookShelfChanger shelf={shelf} onChange={handleShelfChange} />
@@ -34,6 +33,7 @@ BookCard.propTypes = {
   title: PropType.string.isRequired,
   authors: PropTypes.arrayOf(PropTypes.string).isRequired,
   shelf: PropTypes.oneOf(["wantToRead", "currentlyReading", "read", "none"]),
+  thumbnail: PropType.string.isRequired,
 };
 
 export default BookCard;
