@@ -12,7 +12,7 @@ const BookCardFooter = (props) => {
 };
 
 BookCardFooter.propTypes = {
-  title: PropType.string.isRequired,
+  title: PropTypes.string.isRequired,
   authors: PropTypes.arrayOf(PropTypes.number).isRequired,
 };
 

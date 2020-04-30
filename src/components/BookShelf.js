@@ -16,7 +16,7 @@ const BookShelf = (props) => {
                   title={item.title}
                   authors={item.authors}
                   shelf={item.shelf}
-                  thumbnail={item.thumbnail}
+                  thumbnail={item.imageLinks.thumbnail}
                   onShelfChange={onShelfChange}
                 />
               </li>
@@ -30,11 +30,11 @@ const BookShelf = (props) => {
 BookShelf.propTypes = {
   shelfTitle: PropTypes.string,
   books: PropTypes.shape({
-    id: PropType.string.isRequired,
-    title: PropType.string.isRequired,
+    id: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
     authors: PropTypes.arrayOf(PropTypes.string).isRequired,
     shelf: PropTypes.oneOf(["wantToRead", "currentlyReading", "read", "none"]),
-    thumbnail: PropType.string.isRequired,
+    thumbnail: PropTypes.string.isRequired,
   }),
   onShelfChange: PropTypes.func,
 };
