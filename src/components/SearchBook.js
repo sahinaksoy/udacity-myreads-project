@@ -1,20 +1,21 @@
-import React from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
 import SearchBookBar from "./SearchBookBar";
 import SearchBookResults from "./SearchBookResults";
 
-const SearchBook = () => {
+class SearchBook extends Component {
 
-  const handleSearchBook = (value) => {
+  handleSearchBook = (value) => {
     // TODO: add search functionality
   };
-  
-  return (
-    <div className="search-books">
-      <SearchBookBar onSearchBook={handleSearchBook} />
-      <SearchBookResults />
-    </div>
-  );
-};
 
+  render() {
+    return (
+      <div className="search-books">
+        <SearchBookBar onSearchBook={this.handleSearchBook} />
+        <SearchBookResults />
+      </div>
+    );
+  }
+}
 export default SearchBook;
