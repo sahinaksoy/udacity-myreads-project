@@ -1,12 +1,27 @@
 import React from "react";
 import PropTypes from "prop-types";
-
+import BookCard from "./BookCard";
 const BookShelf = (props) => {
+  const { shelfTitle, books, onShelfChange } = props;
   return (
     <div className="bookshelf">
-      <h2 className="bookshelf-title">Currently Reading</h2>
+      <h2 className="bookshelf-title">{shelfTitle}</h2>
       <div className="bookshelf-books">
-        <ol className="books-grid">{/* TODO: add book card component */}</ol>
+        <ol className="books-grid">
+          {(books.length === 0 && <p>Record not found</p>) ||
+            books.map((item, index) => (
+              <li key={index}>
+                <BookCard
+                  id={item.id}
+                  title={item.title}
+                  authors={item.authors}
+                  shelf={item.shelf}
+                  thumbnail={item.thumbnail}
+                  onShelfChange={onShelfChange}
+                />
+              </li>
+            ))}
+        </ol>
       </div>
     </div>
   );
@@ -21,6 +36,7 @@ BookShelf.propTypes = {
     shelf: PropTypes.oneOf(["wantToRead", "currentlyReading", "read", "none"]),
     thumbnail: PropType.string.isRequired,
   }),
+  onShelfChange: PropTypes.func,
 };
 
 BookShelf.defaultProps = {
