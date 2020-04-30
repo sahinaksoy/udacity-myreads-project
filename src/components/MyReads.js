@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import BookShelf from "./BookShelf";
 import { getAll } from "../BooksAPI";
+import { Link } from "react-router-dom";
 class MyReads extends Component {
   state = {
     books: [],
@@ -24,19 +25,18 @@ class MyReads extends Component {
         </div>
         <div className="list-books-content">
           <div>
-            <BookShelf shelfTitle={"Currently Reading"} books={currentlyReading} />
+            <BookShelf
+              shelfTitle={"Currently Reading"}
+              books={currentlyReading}
+            />
             <BookShelf shelfTitle={"Want to Read"} books={wantToRead} />
             <BookShelf shelfTitle={"Read"} books={read} />
           </div>
         </div>
         <div className="open-search">
-          <button
-            onClick={() => {
-              return;
-            }}
-          >
-            Add a book
-          </button>
+          <Link to="/search">
+            <button>Add a book</button>
+          </Link>
         </div>
       </div>
     );
