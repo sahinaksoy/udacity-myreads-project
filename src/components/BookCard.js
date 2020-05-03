@@ -33,7 +33,7 @@ BookCard.propTypes = {
   id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   authors: PropTypes.arrayOf(PropTypes.string).isRequired,
-  shelf: PropTypes.oneOf(["wantToRead", "currentlyReading", "read", "none"]),
+  shelf: PropTypes.oneOf(["wantToRead", "currentlyReading", "read"]),
   thumbnail: PropTypes.string.isRequired,
 };
 
