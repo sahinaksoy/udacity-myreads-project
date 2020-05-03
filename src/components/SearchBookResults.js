@@ -1,25 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
-import BookCard from "./BookCard";
+import BookList from "./BookList";
+
 const SearchBookResults = (props) => {
   const { books, onShelfChange } = props;
   return (
     <div className="search-books-results">
-      <ol className="books-grid">
-        {(books.length === 0 && <p>Record not found</p>) ||
-          books.map((item, index) => (
-            <li key={index}>
-              <BookCard
-                id={item.id}
-                title={item.title}
-                authors={item.authors}
-                shelf={item.shelf}
-                thumbnail={item.imageLinks.thumbnail}
-                onShelfChange={onShelfChange}
-              />
-            </li>
-          ))}
-      </ol>
+      <BookList books={books} onShelfChange={onShelfChange} />
     </div>
   );
 };
@@ -29,7 +16,7 @@ SearchBookResults.propTypes = {
     PropTypes.shape({
       id: PropTypes.string.isRequired,
       title: PropTypes.string.isRequired,
-      authors: PropTypes.arrayOf(PropTypes.string).isRequired,
+      authors: PropTypes.arrayOf(PropTypes.string),
       shelf: PropTypes.oneOf([
         "wantToRead",
         "currentlyReading",
@@ -37,8 +24,8 @@ SearchBookResults.propTypes = {
         "none",
       ]),
       imageLinks: PropTypes.shape({
-        thumbnail: PropTypes.string.isRequired,
-      }).isRequired,
+        thumbnail: PropTypes.string,
+      }),
     })
   ),
   onShelfChange: PropTypes.func,
