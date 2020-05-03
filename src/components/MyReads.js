@@ -49,7 +49,7 @@ MyReads.propTypes = {
     PropTypes.shape({
       id: PropTypes.string.isRequired,
       title: PropTypes.string.isRequired,
-      authors: PropTypes.arrayOf(PropTypes.string).isRequired,
+      authors: PropTypes.arrayOf(PropTypes.string),
       shelf: PropTypes.oneOf([
         "wantToRead",
         "currentlyReading",
@@ -57,8 +57,8 @@ MyReads.propTypes = {
         "none",
       ]),
       imageLinks: PropTypes.shape({
-        thumbnail: PropTypes.string.isRequired,
-      }).isRequired,
+        thumbnail: PropTypes.string,
+      }),
     })
   ),
   onShelfChange: PropTypes.func,

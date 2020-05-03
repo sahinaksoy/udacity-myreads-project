@@ -38,9 +38,10 @@ const BookCard = (props) => {
 BookCard.propTypes = {
   id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  authors: PropTypes.arrayOf(PropTypes.string).isRequired,
+  authors: PropTypes.arrayOf(PropTypes.string),
   shelf: PropTypes.oneOf(["wantToRead", "currentlyReading", "read", "none"]),
-  thumbnail: PropTypes.string.isRequired,
+  thumbnail: PropTypes.string,
 };
+ 
 
 export default BookCard;
