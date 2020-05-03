@@ -6,9 +6,7 @@ const SearchBookBar = (props) => {
   const { onSearchBook } = props;
 
   const handleTextChange = (e) => {
-    if (e.target.value.length >= 3) {
       onSearchBook(e.target.value);
-    }
   };
   return (
     <div className="search-books-bar">
