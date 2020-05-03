@@ -9,14 +9,14 @@ const BookShelfChanger = (props) => {
     <div className="book-shelf-changer">
       <select
         onChange={(e) => {
-          onChange(e.value);
+          onChange(e.target.value);
         }}
       >
         <option value="move" disabled>
           Move to...
         </option>
         {shelving.map((item) => (
-          <option value="item" selected={item === shelf}>
+          <option value={item} selected={item === shelf}>
             {item}
           </option>
         ))}
