@@ -11,6 +11,12 @@ class SearchBook extends Component {
 
   handleOnSearchBook = (value) => {
     const { books } = this.props;
+    if (value.length === 0) {
+      this.setState({
+        searchResult: [],
+      });
+      return;
+    }
     search(value.trim()).then((response) => {
       if (response.error) {
         this.setState({
@@ -46,7 +52,7 @@ class SearchBook extends Component {
 }
 
 SearchBook.propTypes = {
-  onShelfChange:PropTypes.func
+  onShelfChange: PropTypes.func,
 };
 
 export default SearchBook;
