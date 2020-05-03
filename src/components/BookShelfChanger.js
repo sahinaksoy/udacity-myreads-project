@@ -10,12 +10,13 @@ const BookShelfChanger = (props) => {
         onChange={(e) => {
           onChange(e.target.value);
         }}
+        defaultValue={shelving.filter((x) => x === shelf)[0]}
       >
-        <option value="move" disabled>
+        <option value="move" key={0} disabled>
           Move to...
         </option>
-        {shelving.map((item) => (
-          <option value={item} selected={item === shelf}>
+        {shelving.map((item, index) => (
+          <option value={item} key={++index}>
             {item}
           </option>
         ))}
