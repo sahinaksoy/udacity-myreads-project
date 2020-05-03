@@ -1,24 +1,21 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 const SearchBookBar = (props) => {
   const { onSearchBook } = props;
 
   const handleTextChange = (e) => {
-    if (e.current.value.length > 3) {
-      onSearchBook(e.current.value);
+    if (e.target.value.length >= 3) {
+      onSearchBook(e.target.value);
     }
   };
   return (
     <div className="search-books-bar">
-      <button
-        className="close-search"
-        onClick={() => {
-          return;
-        }}
-      >
-        Close
-      </button>
+      <Link to="/">
+        <button className="close-search">Close</button>
+      </Link>
+
       <div className="search-books-input-wrapper">
         <input
           type="text"
