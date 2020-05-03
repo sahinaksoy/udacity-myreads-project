@@ -29,13 +29,17 @@ const BookShelf = (props) => {
 
 BookShelf.propTypes = {
   shelfTitle: PropTypes.string,
-  books: PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    authors: PropTypes.arrayOf(PropTypes.string).isRequired,
-    shelf: PropTypes.oneOf(["wantToRead", "currentlyReading", "read"]),
-    thumbnail: PropTypes.string.isRequired,
-  }),
+  books: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+      authors: PropTypes.arrayOf(PropTypes.string).isRequired,
+      shelf: PropTypes.oneOf(["wantToRead", "currentlyReading", "read","none"]),
+      imageLinks: PropTypes.shape({
+        thumbnail: PropTypes.string.isRequired,
+      }).isRequired,
+    })
+  ),
   onShelfChange: PropTypes.func,
 };
 
