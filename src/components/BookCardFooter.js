@@ -13,7 +13,7 @@ const BookCardFooter = (props) => {
 
 BookCardFooter.propTypes = {
   title: PropTypes.string.isRequired,
-  authors: PropTypes.arrayOf(PropTypes.number).isRequired,
+  authors: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 export default BookCardFooter;
