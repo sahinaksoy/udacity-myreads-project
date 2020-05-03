@@ -7,7 +7,15 @@ const BookCard = (props) => {
   const { id, title, authors, shelf, onShelfChange, thumbnail } = props;
 
   const handleShelfChange = (shelf) => {
-    onShelfChange({ id, shelf });
+    onShelfChange({
+      id,
+      title,
+      authors,
+      shelf,
+      imageLinks: {
+        thumbnail,
+      },
+    });
   };
   return (
     <div className="book">
@@ -19,13 +27,11 @@ const BookCard = (props) => {
             height: 193,
             backgroundImage: `url("${thumbnail}")`,
           }}
-      
-      />
-      <BookShelfChanger shelf={shelf} onChange={handleShelfChange} />
+        />
+        <BookShelfChanger shelf={shelf} onChange={handleShelfChange} />
       </div>
       <BookCardFooter title={title} authors={authors} />
     </div>
-    
   );
 };
 
@@ -33,7 +39,7 @@ BookCard.propTypes = {
   id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   authors: PropTypes.arrayOf(PropTypes.string).isRequired,
-  shelf: PropTypes.oneOf(["wantToRead", "currentlyReading", "read"]),
+  shelf: PropTypes.oneOf(["wantToRead", "currentlyReading", "read", "none"]),
   thumbnail: PropTypes.string.isRequired,
 };
 
