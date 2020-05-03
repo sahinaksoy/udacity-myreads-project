@@ -4,7 +4,6 @@ import PropType from "prop-types";
 const BookShelfChanger = (props) => {
   const { shelf, onChange } = props;
   const shelving = ["currentlyReading", "wantToRead", "read", "none"];
-
   return (
     <div className="book-shelf-changer">
       <select
